@@ -1,0 +1,93 @@
+def obtenir_comandes_per_usuaris(usuaris, the_user):
+    for usuari in usuaris:
+        if usuari["id"] == the_user:
+            return usuari["comandes"]
+
+
+def obtenir_comandes_per_data(usuaris, data):
+    comandes_filtrades = []
+    for usuari in usuaris:
+        for comanda in usuari["comandes"]:
+            if comanda["data"] == data:
+                res = {
+                    "usuari": usuari["nom"],
+                    "comanda": comanda
+                }
+                comandes_filtrades.append(res)
+    return comandes_filtrades
+
+
+
+usuaris = [
+    {
+        "id": "4747474S",
+        "nom": "Hillary Clinton",
+        "comandes": [
+            {
+                "producte": "coca cola",
+                "categoria": "beguda",
+                "q": 3,
+                "data": "31/1/2025"
+            },
+            {
+                "producte": "donut",
+                "categoria": "menjar",
+                "q": 1,
+                "data": "28/1/2025"
+            }
+        ]
+    },
+    {
+        "id": "48472222K",
+        "nom": "Bill Jones",
+        "comandes": [
+            {
+                "producte": "cervesa",
+                "categoria": "beguda",
+                "q": 1,
+                "data": "17/11/2024"
+            }
+        ]
+    },
+    {
+        "id": "89876555W",
+        "nom": "Clara Smith",
+        "comandes": [
+            {
+                "producte": "entrepà",
+                "categoria": "menjar",
+                "q": 1,
+                "data": "16/3/2024"
+            },
+            {
+                "producte": "coca cola",
+                "categoria": "beguda",
+                "q": 1,
+                "data": "17/11/2024"
+            },
+            {
+                "producte": "coca cola",
+                "categoria": "beguda",
+                "q": 1,
+                "data": "26/12/2024"
+            }
+        ]
+    }
+]
+
+
+the_user = "89876555W"  
+resultat = obtenir_comandes_per_usuaris(usuaris, the_user)
+
+print(f"Comandes de l'usuari {the_user}:")
+for comanda in resultat:
+    print(comanda)
+                
+
+data= "17/11/2024"
+resultat= obtenir_comandes_per_data(usuaris,data)
+
+print(f"Comandes fetes en la data {data}:")
+for comanda in resultat:
+    print(comanda)
+
