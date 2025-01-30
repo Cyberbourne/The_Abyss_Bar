@@ -4,7 +4,3 @@ The main objective of this repository is to work and develop a restoration proje
 - Xenia Abascal Artigas
 - Claudia Baile Guinot
 - Carlota Amorós Llonch 
-
-¡Missó cumplida!
-
-hola
